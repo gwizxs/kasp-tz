@@ -1,0 +1,25 @@
+@import "variables/global.scss";
+@import "reset";
+@import "themes/light";
+@import "themes/dark.scss";
+
+
+.app {
+    font-family: var(--font-family-main);
+    font: var(--font-m);
+    background: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 100vh;
+}
+
+.content-page {
+    display: flex;
+    padding-top: var(--navbar-height);
+    padding-left: var(--sidebar-width);
+    min-height: 100vh;
+    transition: padding-left 0.3s ease;
+}
+
+.content-page.sidebar-collapsed {
+    padding-left: var(--sidebar-width-collapsed);
+}

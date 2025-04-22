@@ -1,0 +1,48 @@
+.Sidebar {
+    height: 100vh;
+    width: var(--sidebar-width);
+    background: var(--bg-color);
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 1px solid var(--stroke);
+    transition: width 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+    z-index: 200;
+}
+
+.switchers {
+    position: absolute;
+    bottom: 1.25rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: opacity 0.2s ease;
+}
+
+.lang {
+    margin-left: 1.25rem;
+}
+
+.items {
+    margin-top: 4rem;
+    margin-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.2s ease;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+    transform: translateX(0);
+    
+    .switchers {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .items {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
