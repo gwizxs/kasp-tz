@@ -1,43 +1,3 @@
-@mixin light-theme {
-  --card-bg: #ffffff;
-  --card-border: rgba(0, 0, 0, 0.1);
-  --primary-text: #333333;
-  --secondary-text: #666666;
-  --accent-color: #0a84ff;
-  --positive-color: #00cc7e;
-  --tag-bg: rgba(10, 132, 255, 0.1);
-  --tag-counter-bg: rgba(10, 132, 255, 0.2);
-  --highlight-bg: #0a84ff;
-  --highlight-text: #ffffff;
-  --button-hover-bg: rgba(10, 132, 255, 0.05);
-}
-
-@mixin dark-theme {
-  --card-bg: #111a2b;
-  --card-border: rgba(255, 255, 255, 0.1);
-  --primary-text: #dcdcdc;
-  --secondary-text: #8f8f8f;
-  --accent-color: #0a84ff;
-  --positive-color: #00ff9d;
-  --tag-bg: rgba(0, 0, 0, 0.3);
-  --tag-counter-bg: rgba(255, 255, 255, 0.1);
-  --highlight-bg: #0a84ff;
-  --highlight-text: #fff;
-  --button-hover-bg: rgba(10, 132, 255, 0.1);
-}
-
-:global(.light-theme) {
-  @include light-theme;
-}
-
-:global(.dark-theme) {
-  @include dark-theme;
-}
-
-:global(body) {
-  @include dark-theme;
-}
-
 .articleCard {
     margin-bottom: 1rem;
     width: 100%;
@@ -101,23 +61,6 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.statusButton {
-    background-color: var(--positive-color);
-    color: #000;
-    border: none;
-    border-radius: 0.25rem;
-    font-size: 0.75rem;
-    height: 1.5rem;
-    padding: 0 0.5rem;
-
-    &:hover,
-    &:focus {
-        background-color: var(--positive-color);
-        color: #000;
-        opacity: 0.9;
-    }
 }
 
 .infoIcon {

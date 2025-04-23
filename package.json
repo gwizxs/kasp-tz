@@ -1,14 +1,14 @@
 {
-  "name": "extremum-frontend",
+  "name": "kaspersky-tz",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
+    "start:dev": "concurrently \"npm run start\" \"npm run server\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "unit": "jest --config ./config/jest/jest.config.ts",
     "server": "node ./json-server/index.js"
   },
   "dependencies": {

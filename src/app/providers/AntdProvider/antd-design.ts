@@ -26,6 +26,9 @@ export const lightThemeConfig: ThemeConfig = {
       Card: {
         colorBgContainer: 'rgba(246, 249, 252, 0.67)'
       },
+      Tag: {
+         colorPrimary: '#DE6263',
+      },
    },
  };
 
@@ -59,6 +62,9 @@ export const lightThemeConfig: ThemeConfig = {
       },
       Card: {
         colorBgContainer: '#212124'
+      },
+      Tag: {
+         colorPrimary: '#bb3637',
       },
    },
  };

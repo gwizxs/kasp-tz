@@ -60,27 +60,26 @@ export const ArticleNewsListItem = memo((props: ArticleNewsListItemProps) => {
                         <Text className={s.date}>{dayjs(article.DP).format('DD MMM YYYY')}</Text>
                         <Space className={s.reach}>
                             <EyeOutlined />
-                            <Text>{article.REACH} {t('Охватов')}</Text>
+                            <Text>{article.REACH} {t('Reach')}</Text>
                         </Space>
-                        <Text className={s.traffic}>{t('Основной трафик')}: {formatTraffic()}</Text>
+                        <Text className={s.traffic}>{t('Top Traffic')}: {formatTraffic()}</Text>
                     </Space>
                     <Space className={s.statusIcons}>
-                        <Button 
-                            type="primary" 
-                            size="small" 
+                        <Tag
+                            color="error"
                             className={s.statusButton}
                         >
                             {article.SENT.charAt(0).toUpperCase() + article.SENT.slice(1)}
-                        </Button>
-                        <InfoCircleOutlined 
-                            className={s.infoIcon} 
+                        </Tag>
+                        <InfoCircleOutlined
+                            className={s.infoIcon}
                         />
                     </Space>
                 </div>
 
-                <Link 
-                    href={article.URL} 
-                    target={target} 
+                <Link
+                    href={article.URL}
+                    target={target}
                     className={s.title}
                     onClick={handleTitleClick}
                 >
@@ -89,7 +88,7 @@ export const ArticleNewsListItem = memo((props: ArticleNewsListItemProps) => {
 
                 <div className={s.sourceInfo}>
                     <Space size={16}>
-                        <Link 
+                        <Link
                             href={`https://${article.DOM}`}
                             className={s.source}
                             onClick={handleSourceClick}
@@ -99,9 +98,9 @@ export const ArticleNewsListItem = memo((props: ArticleNewsListItemProps) => {
                         </Link>
                         <Space className={s.country}>
                             <span className={s.flag}>
-                                {article.CNTR_CODE === 'fr' ? '🇫🇷' : 
-                                 article.CNTR_CODE === 'us' ? '🇺🇸' :
-                                 article.CNTR_CODE === 'at' ? '🇦🇹' : '🌐'}
+                                {article.CNTR_CODE === 'fr' ? '🇫🇷' :
+                                    article.CNTR_CODE === 'us' ? '🇺🇸' :
+                                        article.CNTR_CODE === 'at' ? '🇦🇹' : '🌐'}
                             </span>
                             <Text>{article.CNTR}</Text>
                         </Space>
@@ -114,25 +113,25 @@ export const ArticleNewsListItem = memo((props: ArticleNewsListItemProps) => {
                 </div>
 
                 <div className={s.content}>
-                    <div 
+                    <div
                         className={s.highlight}
-                        dangerouslySetInnerHTML={{ 
-                            __html: expanded && article.HIGHLIGHTS.length > 0 
-                                ? article.HIGHLIGHTS.map(h => renderHighlight(h)).join('<br/><br/>') 
-                                : article.HIGHLIGHTS.length > 0 
-                                    ? renderHighlight(article.HIGHLIGHTS[0]) 
+                        dangerouslySetInnerHTML={{
+                            __html: expanded && article.HIGHLIGHTS.length > 0
+                                ? article.HIGHLIGHTS.map(h => renderHighlight(h)).join('<br/><br/>')
+                                : article.HIGHLIGHTS.length > 0
+                                    ? renderHighlight(article.HIGHLIGHTS[0])
                                     : article.AB
-                        }} 
+                        }}
                     />
                     {article.HIGHLIGHTS.length > 1 && (
                         <div className={s.showMoreWrapper}>
-                            <Button 
-                                type="link" 
+                            <Button
+                                type="link"
                                 className={s.showMoreBtn}
                                 onClick={() => setExpanded(!expanded)}
                                 icon={<DownOutlined rotate={expanded ? 180 : 0} />}
                             >
-                                {expanded ? t('Показать меньше') : t('Показать больше')}
+                                {expanded ? t('Show less') : t('Show more')}
                             </Button>
                         </div>
                     )}
@@ -141,8 +140,8 @@ export const ArticleNewsListItem = memo((props: ArticleNewsListItemProps) => {
                 <div className={s.tags}>
                     <Space wrap>
                         {article.KW.map(tag => (
-                            <Tag 
-                                key={tag.value} 
+                            <Tag
+                                key={tag.value}
                                 className={s.tag}
                             >
                                 <Space>
@@ -155,25 +154,24 @@ export const ArticleNewsListItem = memo((props: ArticleNewsListItemProps) => {
                 </div>
 
                 <div className={s.footer}>
-                    <Button 
+                    <Button
                         type="link"
                         className={s.sourceBtn}
                         onClick={() => {
                             window.open(article.URL, '_blank');
                         }}
                     >
-                        {t('Оригинальный источник')}
+                        {t('Original Source')}
                     </Button>
 
                     <div className={s.duplicates}>
-                        <Text className={s.duplicatesCount}>{t('Дубликаты')}: 192</Text>
-                        <Button 
+                        <Button
                             className={s.viewDuplicatesBtn}
                             icon={<DownOutlined rotate={showDuplicates ? 180 : 0} />}
                             onClick={() => setShowDuplicates(!showDuplicates)}
                             block
                         >
-                            {t('Просмотреть дубликаты')}
+                            {t('View Duplicates')}
                         </Button>
                     </div>
                 </div>
